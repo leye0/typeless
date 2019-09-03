@@ -1,0 +1,11 @@
+<div class="container" (mousemove)="boxService.resizingBox($event)" (mouseup)="boxService.resizingBox($event, true)">
+  <!-- <button (click)="addBox()" mat-fab color="primary" disableRipple=true>
+    <span style="font-size: 3rem;">+</span>
+  </button> -->
+  <ng-container *ngFor="let box of boxService.boxes">
+    <app-box [box]="box"></app-box>
+  </ng-container>
+
+  <div id="trailing-element"></div>
+  <div id="cursor-element"></div>
+</div>

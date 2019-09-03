@@ -1,0 +1,56 @@
+<div
+  [id]="'_' + box.id.toString()"
+  class="box"
+  (mousedown)="boxService.boxMouseDown(box)"
+  (mousemove)="boxService.boxMoved(box)"
+  (mouseup)="boxService.boxMouseUp()"
+  cdkDrag>
+  <div class="header" cdkDragHandle (cdkDragEnded)="boxMoved()">
+    <span class="edit" (click)="edit()">✏</span>
+    <span>{{ box.name }}</span>
+  </div>
+  <div class="content">
+    <div class="editor" style="display: none;" [id]="'editor-' + box.id">{{ box.code }}</div>
+    <div class="pin-group inputs">
+      <ng-container *ngFor="let pin of box.inputs; let i = index;">
+        <div
+          [id]="'_' + pin.id.toString()"
+          [style.top]="((i / box.inputs.length) * 100).toString() + 'px'"
+          (mouseover)="boxService.pinMouseover(pin)"
+          (mouseout)="boxService.pinMouseout(pin)"
+          (mouseup)="boxService.pinMouseup(pin)"
+          (mousedown)="boxService.pinMousedown(pin)"
+          class="pin">
+          <div
+            [id]="'_attach-' + pin.id.toString()"
+            class="attach"
+            [class.selected]="pin.id === boxService.selectedPin?.value?.id"
+            [class.hovered]="pin.id === boxService.hoveredPin?.value?.id">
+            <span class="label">{{ pin.name }}</span>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <div class="pin-group outputs">
+      <ng-container *ngFor="let pin of box.outputs; let i = index;">
+        <div
+          [id]="'_' + pin.id.toString()"
+          [style.top]="((i / box.outputs.length) * 100).toString() + 'px'"
+          (mouseover)="boxService.pinMouseover(pin)"
+          (mouseout)="boxService.pinMouseout(pin)"
+          (mouseup)="boxService.pinMouseup(pin)"
+          (mousedown)="boxService.pinMousedown(pin)"
+          class="pin">
+          <div #el
+            [id]="'_attach-' + pin.id.toString()"
+            class="attach"
+            [class.selected]="pin.id === boxService.selectedPin?.value?.id"
+            [class.hovered]="pin.id === boxService.hoveredPin?.value?.id">
+          </div>
+          <span class="label">{{ pin.name }}</span>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <div class="resize-handle" (mousedown)="boxService.resizeStarted(box, $event)"></div>
+</div>

@@ -1,0 +1,25 @@
+.container {
+  position: relative;
+  display: block;
+  height: calc(100vh - 24px);
+  width: 100%;
+  overflow: scroll;
+}
+
+
+// Use to increase the size of the container since boxes are position: absolute;
+
+#trailing-element {
+  position: relative;
+}
+
+#cursor-element {
+  position: absolute;
+}
+
+#trailing-element, #cursor-element {
+  width: 0;
+  height: 0;
+  opacity: 0;
+  display: block;
+}

@@ -1,0 +1,127 @@
+.box {
+  user-select: none;
+  box-sizing: border-box;
+  border: solid 1px #ccc;
+  color: rgba(0, 0, 0, 0.87);
+  text-align: center;
+  background: #fff;
+  border-radius: 4px;
+  position: absolute;
+  z-index: 1;
+  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+              0 2px 2px 0 rgba(0, 0, 0, 0.14),
+              0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.header {
+  width: 100%;
+  display: block;
+  height: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-bottom: solid 1px #ccc;
+}
+
+.content{
+  padding-top: 8px;
+  width: 100%;
+  display: inline-block;
+}
+
+.box:active {
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+              0 8px 10px 1px rgba(0, 0, 0, 0.14),
+              0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.handle {
+  position: absolute;
+  top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #ccc;
+  cursor: move;
+  width: 24px;
+  height: 24px;
+}
+
+.pin-group {
+  display: inline-block;
+  position: absolute;
+  height: 100%;
+  width: 32px;
+}
+
+.inputs {
+  left: 0;
+  .pin {
+    .label {
+      left: 16px;
+    }
+  }
+}
+
+.outputs {
+  right: 0;
+  .pin {
+    .label {
+      right: 32px;
+    }
+  }
+}
+
+.pin {
+  .label {
+    display: inline-block;
+    position: absolute;
+    top: -4px;
+  }
+  .attach {
+    display: block;
+    position: relative;
+    border-radius: 100px;
+    background: white;
+    &.selected, &.hovered  {
+      background: black;
+    }
+    width: 12px;
+    height: 12px;
+    margin: auto;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+              0 2px 2px 0 rgba(0, 0, 0, 0.14),
+              0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    &:active {
+      box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+              0 8px 10px 1px rgba(0, 0, 0, 0.14),
+              0 3px 14px 2px rgba(0, 0, 0, 0.12);
+    }
+  }
+}
+
+.editor {
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 32px);
+  top: 33px;
+  z-index: 1;
+}
+
+.resize-handle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  bottom: 0;
+  right: 0;
+  background: #ddd;
+  opacity: 0.5;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.edit {
+  &:hover {
+    color: green;
+  }
+}

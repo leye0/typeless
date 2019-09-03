@@ -1,0 +1,22 @@
+.app-header {
+  top: 0px;
+  position: relative;
+  height: 24px;
+  width: 100%;
+  background: #444;
+  box-shadow: 4px 3px 4px #888888;
+  .hearts {
+    span {
+      color: black;
+    }
+    text-shadow: -1px 1px 0 #000;
+    color: red;
+    font-weight: bold;
+    right: 8px;
+    top: 3px;
+    position: absolute;
+  }
+}
+.board {
+  position: relative;
+}
